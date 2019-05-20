@@ -1,7 +1,7 @@
 # DB設計
-***
+
 ## users table
-***
+
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false, index: true|
@@ -13,7 +13,7 @@
 - has_many :groups, through: :users_groups
 ***
 ## groups table
-***
+
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
@@ -24,7 +24,7 @@
 - has_many :users, through: :users_groups
 ***
 ## users_groups table
-***
+
 |Column|Type|Options|
 |------|----|-------|
 |user_id|integer|foreign_key: true|
@@ -35,7 +35,7 @@
 - belongs_to :group
 ***
 ## messages table
-***
+
 |Column|Type|Options|
 |------|----|-------|
 |body|text||
