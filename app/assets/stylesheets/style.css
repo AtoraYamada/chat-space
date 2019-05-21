@@ -1,148 +1,62 @@
-/*!
- * YUI 3.5.0 - reset.css (http://developer.yahoo.com/yui/3/cssreset/)
- * http://cssreset.com
- * Copyright 2012 Yahoo! Inc. All rights reserved.
- * http://yuilibrary.com/license/
- */
 /*
-    TODO will need to remove settings on HTML since we can't namespace it.
-    TODO with the prefix, should I group by selector or property for weight savings?
+Error: File to import not found or unreadable: font-awesome-sprockets.
+        on line 5 of application.scss
+
+1: // Import reset css
+2: @import "./reset";
+3: 
+4: // Import the FontAwesome styles
+5: @import "font-awesome-sprockets";
+6: @import "font-awesome";
+7: 
+8: // Import variables
+9: @import "./config/variable";
+10: 
+
+Backtrace:
+application.scss:5
+/Users/ATORA/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/sass-3.7.4/lib/sass/tree/import_node.rb:67:in `rescue in import'
+/Users/ATORA/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/sass-3.7.4/lib/sass/tree/import_node.rb:44:in `import'
+/Users/ATORA/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/sass-3.7.4/lib/sass/tree/import_node.rb:28:in `imported_file'
+/Users/ATORA/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/sass-3.7.4/lib/sass/tree/import_node.rb:37:in `css_import?'
+/Users/ATORA/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/sass-3.7.4/lib/sass/tree/visitors/perform.rb:310:in `visit_import'
+/Users/ATORA/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/sass-3.7.4/lib/sass/tree/visitors/base.rb:36:in `visit'
+/Users/ATORA/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/sass-3.7.4/lib/sass/tree/visitors/perform.rb:158:in `block in visit'
+/Users/ATORA/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/sass-3.7.4/lib/sass/stack.rb:79:in `block in with_base'
+/Users/ATORA/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/sass-3.7.4/lib/sass/stack.rb:135:in `with_frame'
+/Users/ATORA/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/sass-3.7.4/lib/sass/stack.rb:79:in `with_base'
+/Users/ATORA/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/sass-3.7.4/lib/sass/tree/visitors/perform.rb:158:in `visit'
+/Users/ATORA/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/sass-3.7.4/lib/sass/tree/visitors/base.rb:52:in `block in visit_children'
+/Users/ATORA/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/sass-3.7.4/lib/sass/tree/visitors/base.rb:52:in `map'
+/Users/ATORA/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/sass-3.7.4/lib/sass/tree/visitors/base.rb:52:in `visit_children'
+/Users/ATORA/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/sass-3.7.4/lib/sass/tree/visitors/perform.rb:167:in `block in visit_children'
+/Users/ATORA/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/sass-3.7.4/lib/sass/tree/visitors/perform.rb:179:in `with_environment'
+/Users/ATORA/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/sass-3.7.4/lib/sass/tree/visitors/perform.rb:166:in `visit_children'
+/Users/ATORA/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/sass-3.7.4/lib/sass/tree/visitors/base.rb:36:in `block in visit'
+/Users/ATORA/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/sass-3.7.4/lib/sass/tree/visitors/perform.rb:186:in `visit_root'
+/Users/ATORA/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/sass-3.7.4/lib/sass/tree/visitors/base.rb:36:in `visit'
+/Users/ATORA/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/sass-3.7.4/lib/sass/tree/visitors/perform.rb:157:in `visit'
+/Users/ATORA/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/sass-3.7.4/lib/sass/tree/visitors/perform.rb:10:in `visit'
+/Users/ATORA/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/sass-3.7.4/lib/sass/tree/root_node.rb:36:in `css_tree'
+/Users/ATORA/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/sass-3.7.4/lib/sass/tree/root_node.rb:29:in `render_with_sourcemap'
+/Users/ATORA/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/sass-3.7.4/lib/sass/engine.rb:389:in `_render_with_sourcemap'
+/Users/ATORA/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/sass-3.7.4/lib/sass/engine.rb:307:in `render_with_sourcemap'
+/Users/ATORA/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/sass-3.7.4/lib/sass/plugin/compiler.rb:462:in `update_stylesheet'
+/Users/ATORA/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/sass-3.7.4/lib/sass/plugin/compiler.rb:215:in `block in update_stylesheets'
+/Users/ATORA/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/sass-3.7.4/lib/sass/plugin/compiler.rb:209:in `each'
+/Users/ATORA/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/sass-3.7.4/lib/sass/plugin/compiler.rb:209:in `update_stylesheets'
+/Users/ATORA/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/sass-3.7.4/lib/sass/plugin/compiler.rb:443:in `on_file_changed'
+/Users/ATORA/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/sass-3.7.4/lib/sass/plugin/compiler.rb:320:in `block in watch'
+/Users/ATORA/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/sass-listen-4.0.0/lib/sass-listen/event/config.rb:23:in `call'
+/Users/ATORA/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/sass-listen-4.0.0/lib/sass-listen/event/processor.rb:115:in `_process_changes'
+/Users/ATORA/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/sass-listen-4.0.0/lib/sass-listen/event/processor.rb:19:in `block in loop_for'
+/Users/ATORA/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/sass-listen-4.0.0/lib/sass-listen/event/processor.rb:15:in `loop'
+/Users/ATORA/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/sass-listen-4.0.0/lib/sass-listen/event/processor.rb:15:in `loop_for'
+/Users/ATORA/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/sass-listen-4.0.0/lib/sass-listen/event/loop.rb:84:in `_wait_for_changes'
+/Users/ATORA/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/sass-listen-4.0.0/lib/sass-listen/event/loop.rb:42:in `block in setup'
+/Users/ATORA/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/sass-listen-4.0.0/lib/sass-listen/internals/thread_pool.rb:6:in `block in add'
 */
-html {
-  color: #000;
-  background: #FFF; }
-
-/*
-  TODO remove settings on BODY since we can't namespace it.
-*/
-/*
-  TODO test putting a class on HEAD.
-      - Fails on FF.
-*/
-body,
-div,
-dl,
-dt,
-dd,
-ul,
-ol,
-li,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-pre,
-code,
-form,
-fieldset,
-legend,
-input,
-textarea,
-p,
-blockquote,
-th,
-td {
-  margin: 0;
-  padding: 0; }
-
-table {
-  border-collapse: collapse;
-  border-spacing: 0; }
-
-fieldset,
-img {
-  border: 0; }
-
-/*
-  TODO think about hanlding inheritence differently, maybe letting IE6 fail a bit...
-*/
-address,
-caption,
-cite,
-code,
-dfn,
-em,
-strong,
-th,
-var {
-  font-style: normal;
-  font-weight: normal; }
-
-ol,
-ul {
-  list-style: none; }
-
-caption,
-th {
-  text-align: left; }
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-size: 100%;
-  font-weight: normal; }
-
-q:before,
-q:after {
-  content: ''; }
-
-abbr,
-acronym {
-  border: 0;
-  font-variant: normal; }
-
-/* to preserve line-height and selector appearance */
-sup {
-  vertical-align: text-top; }
-
-sub {
-  vertical-align: text-bottom; }
-
-input,
-textarea,
-select {
-  font-family: inherit;
-  font-size: inherit;
-  font-weight: inherit; }
-
-/*to enable resizing for IE*/
-input,
-textarea,
-select {
-  *font-size: 100%; }
-
-/*because legend doesn't inherit in IE */
-legend {
-  color: #000; }
-
-/* YUI CSS Detection Stamp */
-#yui3-css-stamp.cssreset {
-  display: none; }
-
-.header {
-  background-color: #38AEF0;
-  color: #FFFFFF;
-  text-align: center;
-  width: 100vw; }
-
-.side-bar {
-  background-color: #2f3e51;
-  width: 300px;
-  height: 100vh; }
-  .side-bar__user-name {
-    background-color: #253141;
-    height: 100px;
-    padding: 0 20px; }
-  .side-bar__groups {
-    height: calc(100vh - 100px);
-    padding: 20px 20px 0; }
-
-* {
-  box-sizing: border-box; }
-
-/*# sourceMappingURL=style.css.map */
+body:before {
+  white-space: pre;
+  font-family: monospace;
+  content: "Error: File to import not found or unreadable: font-awesome-sprockets.\A         on line 5 of application.scss\A \A 1: // Import reset css\A 2: @import \"./reset\";\A 3: \A 4: // Import the FontAwesome styles\A 5: @import \"font-awesome-sprockets\";\A 6: @import \"font-awesome\";\A 7: \A 8: // Import variables\A 9: @import \"./config/variable\";\A 10: "; }
