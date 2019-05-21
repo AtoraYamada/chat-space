@@ -2,4 +2,11 @@
   background-color: #2f3e51;
   width: 300px;
   height: 100vh; 
+  &__user-name{
+    background-color: #253141;
+    height: 100px;
+  }
+  &__groups{
+    height: calc(100vh-100px);
+  }
 }
