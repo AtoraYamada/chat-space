@@ -128,12 +128,19 @@ legend {
   background-color: #38AEF0;
   color: #FFFFFF;
   text-align: center;
-  position: fixed;
   width: 100vw; }
 
 .side-bar {
   background-color: #2f3e51;
   width: 300px;
   height: 100vh; }
+  .side-bar__user-name {
+    background-color: #253141;
+    height: 100px; }
+  .side-bar__groups {
+    height: calc(100vh-100px); }
+
+* {
+  box-sizing: border-box; }
 
 /*# sourceMappingURL=style.css.map */
