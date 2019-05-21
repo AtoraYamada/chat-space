@@ -124,4 +124,9 @@ legend {
 #yui3-css-stamp.cssreset {
   display: none; }
 
+.header {
+  background-color: #38AEF0;
+  color: #FFFFFF;
+  text-align: center; }
+
 /*# sourceMappingURL=style.css.map */
