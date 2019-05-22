@@ -3,6 +3,8 @@
   width: 300px;
   height: 100vh; 
   text-align: left;
+  font-weight: bold;
+  color: $textColorWhite;
   &__user{
     background-color: #253141;
     height: 100px;
@@ -10,8 +12,6 @@
     &--name{
       line-height: 100px;
       font-size: 16px;
-      color: $textColorWhite;
-      font-weight: bold;
     }
     &--icon{
       float:right;
@@ -22,5 +22,15 @@
   &__groups{
     height: calc(100vh - 100px);
     padding: 20px 20px 0;
+    &--detail{
+      padding-bottom: 40px;
+      &--name{
+        padding-bottom: 5px;
+        font-size: 15px;
+      }
+      &--first-message{
+        font-size: 11px;
+      }
+    }
   }
 }
