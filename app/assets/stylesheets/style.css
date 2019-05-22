@@ -1,17 +1,17 @@
 /*
-Error: File to import not found or unreadable: font-awesome-sprockets.
+Error: File to import not found or unreadable: font-awesome.
         on line 5 of application.scss
 
 1: // Import reset css
 2: @import "./reset";
 3: 
 4: // Import the FontAwesome styles
-5: @import "font-awesome-sprockets";
-6: @import "font-awesome";
-7: 
-8: // Import variables
-9: @import "./config/variable";
-10: 
+5: @import "font-awesome";
+6: 
+7: // Import variables
+8: @import "./config/variable";
+9: 
+10: // Import modules
 
 Backtrace:
 application.scss:5
@@ -59,4 +59,4 @@ application.scss:5
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Error: File to import not found or unreadable: font-awesome-sprockets.\A         on line 5 of application.scss\A \A 1: // Import reset css\A 2: @import \"./reset\";\A 3: \A 4: // Import the FontAwesome styles\A 5: @import \"font-awesome-sprockets\";\A 6: @import \"font-awesome\";\A 7: \A 8: // Import variables\A 9: @import \"./config/variable\";\A 10: "; }
+  content: "Error: File to import not found or unreadable: font-awesome.\A         on line 5 of application.scss\A \A 1: // Import reset css\A 2: @import \"./reset\";\A 3: \A 4: // Import the FontAwesome styles\A 5: @import \"font-awesome\";\A 6: \A 7: // Import variables\A 8: @import \"./config/variable\";\A 9: \A 10: // Import modules"; }
