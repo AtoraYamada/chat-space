@@ -17,34 +17,34 @@
       %li.side-groups__detail--name example
       %li.side-groups__detail--first-message まだメッセージがありません
 .main-chat
-  .main-chat__top
-    .main-chat__top--group 
+  .chat-top
+    .chat-top__group 
       chat
-      %ul.main-chat__top--group--members
+      %ul.chat-top__group__members
         Member : 
-        %li.main-chat__top--group--members--detail 
+        %li.chat-top__group__members--detail 
           test1
-        %li.main-chat__top--group--members--detail 
+        %li.chat-top__group__members--detail
           test2
-    %a.main-chat__top--button Edit
-  .main-chat__chat-space
-    %ul.main-chat__chat-space--message
-      %li.main-chat__chat-space--message--user
+    %a.chat-top__edit-button Edit
+  .chat-space
+    %ul.chat-space__message
+      %li.chat-space__message__user
         test-user
-      %li.main-chat__chat-space--message--user--time
+      %li.chat-space__message__user--time
         2019/05/22(Wed) 00:00:00
-    .main-chat__chat-space--message--text こんにちは！
-    %ul.main-chat__chat-space--message
-      %li.main-chat__chat-space--message--user
+    .chat-space__message__text こんにちは！
+    %ul.chat-space--message
+      %li.chat-space__message__user
         test-user
-      %li.main-chat__chat-space--message--user--time
+      %li.chat-space__message__user--time
         2019/05/22(Wed) 00:00:00
-    .main-chat__chat-space--message--text さようなら！
-  %form.main-chat__form
-    %input.main-chat__form--input{type: "text", placeholder: "type a message"}
+    .chat-space__message__text さようなら！
+  %form.chat-form
+    %input.chat-form__input{type: "text", placeholder: "type a message"}
     %label
-      %i.fa.fa-image.fa-lg.main-chat__form--icon
-      %input.image-input{type: "file"}
-    %a.main-chat__form--button Send
+      %i.fa.fa-image.fa-lg.chat-form__icon
+      %input.chat-form__image-input{type: "file"}
+    %a.chat-form__send-button Send
  
 
