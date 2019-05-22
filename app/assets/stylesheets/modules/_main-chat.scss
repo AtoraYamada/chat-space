@@ -1,0 +1,16 @@
+.main-chat{
+  background-color: #a81c1c;
+  height: 100vh;
+  width: calc(100vw - 300px);
+  float: right;
+  text-align: left;
+  padding: 0 40px;
+  &__group-name{
+    background-color: aliceblue;
+    height: 100px;
+  }
+  &__chat-space{
+    background-color: aqua;
+    height: calc(100vh - 100px);
+  }
+}
