@@ -1,5 +1,9 @@
 =render 'header'
 
 .side-bar
-  .side-bar__user-name
+  .side-bar__user
+    =link_to do
+      %i.fa.fa-cog.fa-fw.side-bar__user--icon 
+      %i.fa.fa-edit.fa-fw.side-bar__user--icon 
+    .side-bar__user--name test-user
   .side-bar__groups
