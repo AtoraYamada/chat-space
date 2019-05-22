@@ -1,21 +1,21 @@
 =render 'header'
 
 .side-bar
-  .side-bar__user
+  .side-header
     =link_to do
-      %i.fa.fa-cog.fa-fw.side-bar__user--icon 
-      %i.fa.fa-edit.fa-fw.side-bar__user--icon 
-    .side-bar__user--name test-user
-  .side-bar__groups
-    %ul.side-bar__groups--detail
-      %li.side-bar__groups--detail--name test-group
-      %li.side-bar__groups--detail--first-message さようなら！
-    %ul.side-bar__groups--detail
-      %li.side-bar__groups--detail--name sample-group
-      %li.side-bar__groups--detail--first-message hello!
-    %ul.side-bar__groups--detail
-      %li.side-bar__groups--detail--name example
-      %li.side-bar__groups--detail--first-message まだメッセージがありません
+      %i.fa.fa-cog.fa-fw.side-header__icon 
+      %i.fa.fa-edit.fa-fw.side-header__icon 
+    .side-header__name test-user
+  .side-groups
+    %ul.side-groups__detail
+      %li.side-groups__detail--name test-group
+      %li.side-groups__detail--first-message さようなら！
+    %ul.side-groups__detail
+      %li.side-groups__detail--name sample-group
+      %li.side-groups__detail--first-message hello!
+    %ul.side-groups__detail
+      %li.side-groups__detail--name example
+      %li.side-groups__detail--first-message まだメッセージがありません
 .main-chat
   .main-chat__top
     .main-chat__top--group 
