@@ -75,6 +75,7 @@
       position: absolute;
       right: 165px;
       line-height: 50px;
+      cursor: pointer;
     }
     &--button{
       color: white;
@@ -93,4 +94,8 @@
       }
     }
   }
+}
+
+.image-input{
+  display: none;
 }
