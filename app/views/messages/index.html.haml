@@ -7,15 +7,25 @@
       %i.fa.fa-edit.fa-fw.side-bar__user--icon 
     .side-bar__user--name test-user
   .side-bar__groups
-    .side-bar__groups--detail
-      .side-bar__groups--detail--name test-group
-      .side-bar__groups--detail--first-message さようなら！
-    .side-bar__groups--detail
-      .side-bar__groups--detail--name sample-group
-      .side-bar__groups--detail--first-message hello!
-    .side-bar__groups--detail
-      .side-bar__groups--detail--name example
-      .side-bar__groups--detail--first-message まだメッセージがありません
+    %ul.side-bar__groups--detail
+      %li.side-bar__groups--detail--name test-group
+      %li.side-bar__groups--detail--first-message さようなら！
+    %ul.side-bar__groups--detail
+      %li.side-bar__groups--detail--name sample-group
+      %li.side-bar__groups--detail--first-message hello!
+    %ul.side-bar__groups--detail
+      %li.side-bar__groups--detail--name example
+      %li.side-bar__groups--detail--first-message まだメッセージがありません
 .main-chat
-  .main-chat__group-name
+  .main-chat__top
+    .main-chat__top--group 
+      chat
+      %ul.main-chat__top--group--members
+        Member : 
+        %li.main-chat__top--group--members--detail 
+          test1
+        %li.main-chat__top--group--members--detail 
+          test2
+    %a.main-chat__top--button{type: "submit"} Edit
   .main-chat__chat-space
+
