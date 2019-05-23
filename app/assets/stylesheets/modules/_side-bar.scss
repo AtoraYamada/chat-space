@@ -1,6 +1,6 @@
 .side-bar {
   background-color: #2f3e51;
-  color: $textColorWhite;
+  color: $White;
   float: left;
   font-weight: bold;
   height: 100vh; 
@@ -17,7 +17,7 @@
     line-height: 100px;
   }
   &__icon {
-    color: $textColorWhite;
+    color: $White;
     float:right;
     line-height: 100px;
   }
