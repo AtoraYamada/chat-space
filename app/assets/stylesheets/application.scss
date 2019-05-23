@@ -1,19 +1,19 @@
 // Import reset css
-@import "./reset";
+@import './reset';
 
 // Import the FontAwesome styles
-@import "font-awesome";
+@import 'font-awesome';
 
 // Import variables
-@import "./config/variable";
+@import './config/variable';
 
 // Import modules
-@import "./modules/header";
-@import "./modules/side-bar";
-@import "./modules/main-chat";
+@import './modules/header';
+@import './modules/side-bar';
+@import './modules/main-chat';
 
 
 // scss adapted to entire tags
-*{
+* {
   box-sizing: border-box;
 }

@@ -1,36 +1,38 @@
-.side-bar{
+.side-bar {
   background-color: #2f3e51;
-  width: 300px;
-  height: 100vh; 
-  text-align: left;
-  font-weight: bold;
   color: $textColorWhite;
   float: left;
+  font-weight: bold;
+  height: 100vh; 
+  text-align: left;
+  width: 300px;
 }
-.side-header{
+
+.side-header {
   background-color: #253141;
   height: 100px;
   padding: 0 20px;
-  &__name{
-    line-height: 100px;
+  &__name {
     font-size: 16px;
+    line-height: 100px;
   }
-  &__icon{
+  &__icon {
+    color: $textColorWhite;
     float:right;
     line-height: 100px;
-    color: $textColorWhite;
   }
 }
-.side-groups{
+
+.side-groups {
   height: calc(100vh - 100px);
   padding: 20px 20px 0;
-  &__detail{
+  &__detail {
     padding-bottom: 40px;
-    &--name{
-      padding-bottom: 5px;
+    &--name {
       font-size: 15px;
+      padding-bottom: 5px;
     }
-    &--first-message{
+    &--first-message {
       font-size: 11px;
     }
   }

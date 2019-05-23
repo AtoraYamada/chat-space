@@ -1,102 +1,102 @@
-.main-chat{
-  height: 100vh;
-  width: calc(100vw - 300px);
+.main-chat {
   float: right;
-  text-align: left;
+  height: 100vh;
   position: relative;
+  text-align: left;
+  width: calc(100vw - 300px);
 }
 
-.chat-top{
+.chat-top { 
+  border-bottom: solid thin #eee;
   height: 100px;
-  border-bottom: solid thin #eeeeee;
   padding: 0 40px;
-  &-group{
-    padding-top: 35px;
+  &-group {
+    color: #333;
     float: left;
-    color: #333333;
     font-size: 20px;
-    &__members{
-      color: #999999;
+    padding-top: 35px;
+    &__members {
+      color: #999;
       font-size: 12px;
       padding-top: 15px;
-      &--detail{
+      &--detail {
         display: inline;
       }
     }
   }
-  &__edit-button{
-    color: $headerButtonColor;
+  &__edit-button {
     border: solid 1px $headerButtonColor;
-    line-height: 40px;
-    height: 40px;
-    margin-top: 28px;
+    color: $headerButtonColor;
     float: right;
+    height: 40px;
+    line-height: 40px;
+    margin-top: 28px;
     padding: 0 20px;
-    &:hover{
+    &:hover {
       cursor: pointer;
     }
   }
 }
 
-.chat-space{
+.chat-space {
   background-color: #fafafa;
   height: calc(100vh - 100px);
   padding: 46px 40px 0;
-  &__message{
-    &__user{
-      font-size: 16px;
-      font-weight: bold;
+  &__message {
+    &__user {
       color: #434a54;
       float: left;
+      font-size: 16px;
+      font-weight: bold;
       margin-right: 10px;
-      &--time{
+      &--time {
+        color: #999;
         font-size: 12px;
-        color: #999999;
       }
     }
-    &__text{
-      font-size: 14px;
+    &__text {
       color: #434a54;
-      margin: 10px 0 40px
+      font-size: 14px;
+      margin: 10px 0 40px;
     }
   }
 }
 
-.chat-form{
-  padding: 20px 40px;
+.chat-form {
   background-color: #ddd;
-  position: absolute;
   bottom: 0;
+  padding: 20px 40px;
+  position: absolute;
   width: calc(100vw - 300px);
-  &__input{
-    height: 50px;
-    width: calc(100% - 115px);
-    padding: 0 40px 0 10px;
+  &__input {
     border-style: none;
+    height: 50px;
+    padding: 0 40px 0 10px;
     position: relative;
+    width: calc(100% - 115px);
   }
-  &__icon{
+  &__icon {
+    cursor: pointer;
+    line-height: 50px;
     position: absolute;
     right: 165px;
-    line-height: 50px;
-    cursor: pointer;
   }
-  &__image-input{
+  &__image-input {
     display: none;
   }
-  &__send-button{
-    color: white;
+  &__send-button {
     background-color: $headerButtonColor;
-    line-height: 50px;
+    color: #fff;
     height: 50px;
-    width: 100px;
-    text-align: center;
-    padding: 0 30px;
+    line-height: 50px;
     margin-left: 15px;
+    padding: 0 30px;
     position: absolute;
     right: 40px;
+    text-align: center;
+    width: 100px;
 
-    &:hover{
+    &:hover {
       cursor: pointer;
     }
   }
