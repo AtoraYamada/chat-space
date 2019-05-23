@@ -1,10 +1,9 @@
-=render 'header'
-
+= render 'header'
 .side-bar
   .side-header
-    =link_to do
-      %i.fa.fa-cog.fa-fw.side-header__icon 
-      %i.fa.fa-edit.fa-fw.side-header__icon 
+    = link_to do
+      %i.fa.fa-cog.fa-fw.side-header__icon
+      %i.fa.fa-edit.fa-fw.side-header__icon
     .side-header__name test-user
   .side-groups
     %ul.side-groups__detail
@@ -18,11 +17,11 @@
       %li.side-groups__detail--first-message まだメッセージがありません
 .main-chat
   .chat-top
-    .chat-top__group 
+    .chat-top__group
       chat
       %ul.chat-top__group__members
         Member : 
-        %li.chat-top__group__members--detail 
+        %li.chat-top__group__members--detail
           test1
         %li.chat-top__group__members--detail
           test2
@@ -41,10 +40,9 @@
         2019/05/22(Wed) 00:00:00
     .chat-space__message__text さようなら！
   %form.chat-form
-    %input.chat-form__input{type: "text", placeholder: "type a message"}
+    %input.chat-form__input{ type: 'text', placeholder: 'type a message' }
     %label
       %i.fa.fa-image.fa-lg.chat-form__icon
-      %input.chat-form__image-input{type: "file"}
+      %input.chat-form__image-input{ type: 'file' }
     %a.chat-form__send-button Send
- 
 
