@@ -1,6 +1,11 @@
 .header {
-  background-color: $headerButtonColor;
   color: $White;
   text-align: center;
   width: 100vw;
+  &--notice {
+    background-color: $headerButtonColor;
+  }
+  &--alert {
+    background-color: #f35500;
+  }
 }
