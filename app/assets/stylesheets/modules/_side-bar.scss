@@ -18,7 +18,7 @@
   }
   &__icon {
     color: $White;
-    float:right;
+    float: right;
     line-height: 100px;
   }
 }
@@ -26,13 +26,13 @@
 .side-groups {
   height: calc(100vh - 100px);
   padding: 20px 20px 0;
-  &__detail {
+  &-detail {
     padding-bottom: 40px;
-    &--name {
+    &__name {
       font-size: 15px;
       padding-bottom: 5px;
     }
-    &--first-message {
+    &__first-message {
       font-size: 11px;
     }
   }
