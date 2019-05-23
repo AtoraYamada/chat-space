@@ -1,20 +1,5 @@
 = render 'header'
-.side-bar
-  .side-header
-    = link_to do
-      %i.fa.fa-cog.fa-fw.side-header__icon
-      %i.fa.fa-edit.fa-fw.side-header__icon
-    .side-header__name test-user
-  .side-groups
-    %ul.side-groups__detail
-      %li.side-groups__detail--name test-group
-      %li.side-groups__detail--first-message さようなら！
-    %ul.side-groups__detail
-      %li.side-groups__detail--name sample-group
-      %li.side-groups__detail--first-message hello!
-    %ul.side-groups__detail
-      %li.side-groups__detail--name example
-      %li.side-groups__detail--first-message まだメッセージがありません
+= render 'side-bar'
 .main-chat
   .chat-top
     .chat-top-group
