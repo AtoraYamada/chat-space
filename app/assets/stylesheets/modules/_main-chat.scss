@@ -16,7 +16,7 @@
     font-size: 20px;
     padding-top: 35px;
     &__members {
-      color: #999;
+      color: $subInfoColor;
       font-size: 12px;
       padding-top: 15px;
       &--detail {
@@ -44,18 +44,18 @@
   padding: 46px 40px 0;
   &__message {
     &__user {
-      color: #434a54;
+      color: $messageColor;
       float: left;
       font-size: 16px;
       font-weight: bold;
       margin-right: 10px;
       &--time {
-        color: #999;
+        color: $subInfoColor;
         font-size: 12px;
       }
     }
     &__text {
-      color: #434a54;
+      color: $messageColor;
       font-size: 14px;
       margin: 10px 0 40px;
     }
@@ -93,9 +93,7 @@
     padding: 0 30px;
     position: absolute;
     right: 40px;
-    text-align: center;
     width: 100px;
-
     &:hover {
       cursor: pointer;
     }
