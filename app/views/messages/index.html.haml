@@ -5,10 +5,9 @@
       = @group.name
       %ul.chat-top-group__members
         Member : 
-        %li.chat-top-group__members--detail
-          test1
-        %li.chat-top-group__members--detail
-          test2
+        - @group.users.each do |member|
+          %li.chat-top-group__members--detail
+            = member.name
     =link_to 'Edit', edit_group_path(@group), class: 'chat-top__edit-button'
   .chat-space
     %ul.chat-space__message
