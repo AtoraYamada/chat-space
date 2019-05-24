@@ -7,10 +7,10 @@
     .side-header__name 
       = current_user.name
   .side-groups
-    - current_user.groups.each do |group|
-      = link_to group_messages_path(group) do
-        %ul.side-groups-detail
-          %li.side-groups-detail__name 
+    .side-group
+      - current_user.groups.each do |group|
+        = link_to group_messages_path(group), class: 'side-group__link' do
+          .side-group__link--name 
             = group.name
-          %li.side-groups-detail__first-message 
+          .side-group__link--first-message 
             まだメッセージがありません
