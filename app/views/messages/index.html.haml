@@ -9,7 +9,7 @@
           test1
         %li.chat-top-group__members--detail
           test2
-    =link_to 'Edit', '/groups/1/edit', class: 'chat-top__edit-button'
+    =link_to 'Edit', edit_group_path(@group), class: 'chat-top__edit-button'
   .chat-space
     %ul.chat-space__message
       %li.chat-space__message__user
@@ -23,10 +23,10 @@
       %li.chat-space__message__user--time
         2019/05/22(Wed) 00:00:00
     .chat-space__message__text さようなら！
-  %form.chat-form
-    %input.chat-form__input{ type: 'text', placeholder: 'type a message' }
-    %label
-      %i.fa.fa-image.fa-lg.chat-form__icon
-      %input.chat-form__image-input{ type: 'file' }
-    %a.chat-form__send-button Send
+  = form_for [@group, @message], html: { class: 'chat-form' } do |f|
+    = f.text_field :body, class: 'chat-form__input', placeholder: 'type a message'
+    = f.label :image do
+      = fa_icon 'picture-o lg', class: 'chat-form__icon'
+      = f.file_field :image, class: 'chat-form__image-input'
+    =f.submit 'Send', class: 'chat-form__send-button'
 
