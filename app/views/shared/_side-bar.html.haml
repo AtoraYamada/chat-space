@@ -1,0 +1,16 @@
+.side-bar
+  .side-header
+    = link_to edit_user_path(current_user) do
+      %i.fa.fa-cog.fa-fw.side-header__icon
+    = link_to new_group_path(current_user) do
+      %i.fa.fa-edit.fa-fw.side-header__icon
+    .side-header__name 
+      = current_user.name
+  .side-groups
+    - current_user.groups.each do |group|
+      = link_to group_messages_path(group) do
+        %ul.side-groups-detail
+          %li.side-groups-detail__name 
+            = group.name
+          %li.side-groups-detail__first-message 
+            まだメッセージがありません
