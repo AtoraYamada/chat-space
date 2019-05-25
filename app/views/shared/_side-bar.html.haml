@@ -4,13 +4,13 @@
       %i.fa.fa-cog.fa-fw.side-header__icon
     = link_to new_group_path(current_user) do
       %i.fa.fa-edit.fa-fw.side-header__icon
-    .side-header__name 
+    .side-header__name
       = current_user.name
   .side-groups
     - current_user.groups.each do |group|
       .side-group
         = link_to group_messages_path(group), class: 'side-group__link' do
-          .side-group__link--name 
+          .side-group__link--name
             = group.name
-          .side-group__link--first-message 
+          .side-group__link--first-message
             = group.show_last_message
