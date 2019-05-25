@@ -1,7 +1,7 @@
 .main-chat {
   float: right;
   height: 100vh;
-  position: relative;
+  position: flex;
   text-align: left;
   width: calc(100vw - 300px);
 }
@@ -10,6 +10,10 @@
   border-bottom: solid thin #eee;
   height: 100px;
   padding: 0 40px;
+  top: 0;
+  width: calc(100vw - 300px);
+  background-color: $White;
+  z-index: 1;
   &-group {
     color: #333;
     float: left;
@@ -41,33 +45,44 @@
 
 .chat-space {
   background-color: #fafafa;
-  height: calc(100vh - 100px);
-  padding: 46px 40px 0;
+  height: calc(100vh - 190px);
+  padding: 46px 40px 46px;
+  overflow: auto;
+  &::-webkit-scrollbar{
+    display:none;
+}
   &__message {
-    &__user {
-      color: $messageColor;
-      float: left;
-      font-size: 16px;
-      font-weight: bold;
-      margin-right: 10px;
+    padding-bottom: 40px;
+    &__upper{
+      margin-bottom: 10px;
+      display: flex;
+      &--user {
+        color: $messageColor;
+        font-size: 16px;
+        font-weight: bold;
+        margin-right: 10px;
+      }
       &--time {
         color: $subInfoColor;
         font-size: 12px;
+        vertical-align: top;
       }
     }
-    &__text {
-      color: $messageColor;
-      font-size: 14px;
-      margin: 10px 0 40px;
+    &__lower{
+      &--text {
+        color: $messageColor;
+        font-size: 14px;
+      }
     }
   }
 }
 
 .chat-form {
   background-color: #ddd;
+  height: 90px;
   bottom: 0;
   padding: 20px 40px;
-  position: absolute;
+  position: fixed;
   width: calc(100vw - 300px);
   &__input {
     border-style: none;
