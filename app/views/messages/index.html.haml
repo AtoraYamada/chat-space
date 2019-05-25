@@ -10,22 +10,11 @@
             = member.name
     =link_to 'Edit', edit_group_path(@group), class: 'chat-top__edit-button'
   .chat-space
-    %ul.chat-space__message
-      %li.chat-space__message__user
-        test-user
-      %li.chat-space__message__user--time
-        2019/05/22(Wed) 00:00:00
-    .chat-space__message__text こんにちは！
-    %ul.chat-space--message
-      %li.chat-space__message__user
-        test-user
-      %li.chat-space__message__user--time
-        2019/05/22(Wed) 00:00:00
-    .chat-space__message__text さようなら！
+    = render @messages
   = form_for [@group, @message], html: { class: 'chat-form' } do |f|
     = f.text_field :body, class: 'chat-form__input', placeholder: 'type a message'
-    = f.label :image do
+    = f.label :picture do
       = fa_icon 'picture-o lg', class: 'chat-form__icon'
-      = f.file_field :image, class: 'chat-form__image-input'
-    =f.submit 'Send', class: 'chat-form__send-button'
+      = f.file_field :picture, class: 'chat-form__image-input'
+    = f.submit 'Send', class: 'chat-form__send-button'
 

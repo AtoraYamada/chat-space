@@ -80,6 +80,7 @@
     cursor: pointer;
     line-height: 50px;
     position: absolute;
+    top: 20px;
     right: 165px;
   }
   &__image-input {
@@ -93,6 +94,7 @@
     margin-left: 15px;
     padding: 0 30px;
     position: absolute;
+    top: 20px;
     right: 40px;
     width: 100px;
     &:hover {

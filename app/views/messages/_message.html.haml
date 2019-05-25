@@ -1,0 +1,9 @@
+%ul.chat-space__message
+  %li.chat-space__message__user
+    = message.user.name
+  %li.chat-space__message__user--time
+    = message.created_at.strftime("%Y/%m/%d(%a) %H:%M:%S")
+- if message.body.present?
+  .chat-space__message__text
+    = message.body
+= image_tag message.picture.url if message.picture.present?
