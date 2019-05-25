@@ -1,6 +1,6 @@
 .main-chat {
   float: right;
-  height: 100%;
+  height: 100vh;
   position: relative;
   text-align: left;
   width: calc(100vw - 300px);
@@ -10,7 +10,7 @@
   border-bottom: solid thin #eee;
   height: 100px;
   padding: 0 40px;
-  position: fixed;
+  position: flex;
   top: 0;
   width: calc(100vw - 300px);
   background-color: $White;
@@ -46,8 +46,8 @@
 
 .chat-space {
   background-color: #fafafa;
-  height: calc(100% - 100px);
-  padding: 146px 40px 136px;
+  height: calc(100vh - 100px);
+  padding: 46px 40px 136px;
   overflow: auto;
   &__message {
     padding-bottom: 40px;
@@ -77,6 +77,7 @@
 
 .chat-form {
   background-color: #ddd;
+  height: 90px;
   bottom: 0;
   padding: 20px 40px;
   position: fixed;
