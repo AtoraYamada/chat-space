@@ -4,11 +4,11 @@
     .chat-top-group
       = @group.name
       %ul.chat-top-group__members
-        Member : 
+        Member :
         - @group.users.each do |member|
           %li.chat-top-group__members--detail
             = member.name
-    =link_to 'Edit', edit_group_path(@group), class: 'chat-top__edit-button'
+    = link_to 'Edit', edit_group_path(@group), class: 'chat-top__edit-button'
   .chat-space
     = render @messages
   = form_for [@group, @message], html: { class: 'chat-form' } do |f|
