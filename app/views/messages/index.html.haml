@@ -14,8 +14,8 @@
     = render @messages
   = form_for [@group, @message], html: { class: 'chat-form' } do |f|
     = f.text_field :body, class: 'chat-form__input', placeholder: 'type a message'
-    = f.label :image do
+    = f.label :picture do
       = fa_icon 'picture-o lg', class: 'chat-form__icon'
-      = f.file_field :image, class: 'chat-form__image-input'
+      = f.file_field :picture, class: 'chat-form__image-input'
     = f.submit 'Send', class: 'chat-form__send-button'
 
