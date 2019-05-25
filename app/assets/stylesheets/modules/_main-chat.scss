@@ -1,6 +1,6 @@
 .main-chat {
   float: right;
-  height: 100vh;
+  height: 100%;
   position: relative;
   text-align: left;
   width: calc(100vw - 300px);
@@ -41,24 +41,34 @@
 
 .chat-space {
   background-color: #fafafa;
-  height: calc(100vh - 100px);
-  padding: 46px 40px 0;
+  height: calc(100% - 100px);
+  padding: 46px 40px 136px;
   &__message {
-    &__user {
-      color: $messageColor;
-      float: left;
-      font-size: 16px;
-      font-weight: bold;
-      margin-right: 10px;
+    &__upper{
+      margin-bottom: 10px;
+      display: flex;
+      &--user {
+        color: $messageColor;
+        font-size: 16px;
+        font-weight: bold;
+        margin-right: 10px;
+      }
       &--time {
         color: $subInfoColor;
         font-size: 12px;
+        vertical-align: top;
       }
     }
-    &__text {
-      color: $messageColor;
-      font-size: 14px;
-      margin: 10px 0 40px;
+    &--lower{
+      padding: 40px 0;
+      &--text {
+        color: $messageColor;
+        font-size: 14px;
+        margin: 10px 0 40px;
+      }
+      &--picture {
+        margin: 10px 0 40px;
+      }
     }
   }
 }
