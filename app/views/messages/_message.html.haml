@@ -3,7 +3,7 @@
     .chat-space__message__upper--user
       = message.user.name
     .chat-space__message__upper--time
-      = message.created_at.strftime("%Y/%m/%d(%a) %H:%M:%S")
+      = message.created_at.strftime('%Y/%m/%d(%a) %H:%M:%S')
   .chat-space__message__lower
     - if message.body.present?
       .chat-space__message__lower--text
