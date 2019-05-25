@@ -80,15 +80,13 @@
 .chat-form {
   background-color: #ddd;
   bottom: 0;
-  height: 90px;
   padding: 20px 40px;
-  position: fixed;
+  position: relative;
   width: calc(100vw - 300px);
   &__input {
     border-style: none;
     height: 50px;
     padding: 0 40px 0 10px;
-    position: relative;
     width: calc(100% - 115px);
   }
   &__icon {
