@@ -10,6 +10,10 @@
   border-bottom: solid thin #eee;
   height: 100px;
   padding: 0 40px;
+  position: fixed;
+  width: calc(100vw - 300px);
+  background-color: $White;
+  z-index: 1;
   &-group {
     color: #333;
     float: left;
@@ -42,7 +46,7 @@
 .chat-space {
   background-color: #fafafa;
   height: calc(100% - 100px);
-  padding: 46px 40px 136px;
+  padding: 146px 40px 136px;
   &__message {
     padding-bottom: 40px;
     &__upper{
