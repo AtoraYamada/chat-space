@@ -1,5 +1,6 @@
 $(function(){
   function buildHTML(message){
+  if (message.picture.url==null){
     var html = `<div class="chat-space__message">
                   <div class="chat-space__message__upper">
                     <div class="chat-space__message__upper--user">
@@ -13,16 +14,28 @@ $(function(){
                     <div class="chat-space__message__lower--text">
                       ${message.body}
                     </div>
-                    <img src='${message.picture.url}'>
                   </div>
                 </div>`;
+  } else {
+    var html = `<div class="chat-space__message">
+                  <div class="chat-space__message__upper">
+                    <div class="chat-space__message__upper--user">
+                      ${message.user_name}
+                    </div>
+                    <div class="chat-space__message__upper--time">
+                      ${message.created_at}
+                    </div>
+                  </div>
+                  <div class="chat-space__message__lower">
+                    <div class="chat-space__message__lower--text">
+                      ${message.body}
+                    </div>
+                    <img src='${message.picture.url}' class='image_tag'>
+                  </div>
+                </div>`;
+  }
 
-    // if (message.picture.url == null){
-    //   $(html).append('</div></div>');
-    // } else {
-    //   $(html).append('<img src='${message.picture.url}'></div></div>');
-    // }
-    return html;
+  return html;
   }
   $('.chat-form').on('submit', function(e){
     e.preventDefault();
