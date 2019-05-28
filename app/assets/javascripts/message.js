@@ -57,6 +57,9 @@ $(function(){
       $('.chat-space').animate({scrollTop: $('.chat-space')[0].scrollHeight});
       return false
     })
+    .fail(function(){
+      alert('メッセージを入力してください');
+    })
     .always(function(){
       $('.chat-form__send-button').removeAttr("disabled");
     });
