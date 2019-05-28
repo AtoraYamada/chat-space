@@ -41,6 +41,8 @@ $(function(){
       $('.chat-space').append(html);
       $('.chat-form__input').val('');
       $('.chat-form__image-input').val('');
+    })
+    .always(function(){
       $('.chat-form__send-button').removeAttr("disabled");
     });
   });
