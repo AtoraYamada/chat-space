@@ -1,40 +1,23 @@
 $(function(){
   function buildHTML(message){
-  if (message.picture.url==null){
-    var html = `<div class="chat-space__message">
-                  <div class="chat-space__message__upper">
-                    <div class="chat-space__message__upper--user">
-                      ${message.user_name}
-                    </div>
-                    <div class="chat-space__message__upper--time">
-                      ${message.created_at}
-                    </div>
+  var messagePicture= message.picture.url ? `<img src='${message.picture.url}' class='image_tag'>` : '';
+  var html = `<div class="chat-space__message">
+                <div class="chat-space__message__upper">
+                  <div class="chat-space__message__upper--user">
+                    ${message.user_name}
                   </div>
-                  <div class="chat-space__message__lower">
-                    <div class="chat-space__message__lower--text">
-                      ${message.body}
-                    </div>
+                  <div class="chat-space__message__upper--time">
+                    ${message.created_at}
                   </div>
-                </div>`;
-  } else {
-    var html = `<div class="chat-space__message">
-                  <div class="chat-space__message__upper">
-                    <div class="chat-space__message__upper--user">
-                      ${message.user_name}
-                    </div>
-                    <div class="chat-space__message__upper--time">
-                      ${message.created_at}
-                    </div>
+                </div>
+                <div class="chat-space__message__lower">
+                  <div class="chat-space__message__lower--text">
+                    ${message.body}
                   </div>
-                  <div class="chat-space__message__lower">
-                    <div class="chat-space__message__lower--text">
-                      ${message.body}
-                    </div>
-                    <img src='${message.picture.url}' class='image_tag'>
-                  </div>
-                </div>`;
-  }
-
+                  ${messagePicture}
+                </div>
+              </div>`;
+  
   return html;
   }
   $(document).on('turbolinks:load', function() { 
