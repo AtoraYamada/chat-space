@@ -13,12 +13,14 @@ $(function(){
                     <div class="chat-space__message__lower--text">
                       ${message.body}
                     </div>
+                    <img src='${message.picture.url}'>
                   </div>
                 </div>`;
+
     // if (message.picture.url == null){
-    //   $(.chat-space__message__lower).append('<div></div>');
+    //   $(html).append('</div></div>');
     // } else {
-    //   $(.chat-space__message__lower).append('<img src="${message.picture.url}">);
+    //   $(html).append('<img src='${message.picture.url}'></div></div>');
     // }
     return html;
   }
@@ -39,6 +41,7 @@ $(function(){
       $('.chat-space').append(html);
       $('.chat-form__input').val('');
       $('.chat-form__image-input').val('');
+      $('.chat-form__send-button').removeAttr("disabled");
     });
   });
 });
