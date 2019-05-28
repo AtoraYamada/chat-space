@@ -37,31 +37,33 @@ $(function(){
 
   return html;
   }
-  $('.chat-form').on('submit', function(e){
-    e.preventDefault();
-    var formData = new FormData(this);
-    var url = $(this).attr('action');
-    $.ajax({
-      url: url,
-      type: "POST",
-      data: formData,
-      dataType: 'json',
-      processData: false,
-      contentType: false
-    })
-    .done(function(data){
-      var html = buildHTML(data);
-      $('.chat-space').append(html);
-      $('.chat-form__input').val('');
-      $('.chat-form__image-input').val('');
-      $('.chat-space').animate({scrollTop: $('.chat-space')[0].scrollHeight});
-      return false
-    })
-    .fail(function(){
-      alert('メッセージを入力してください');
-    })
-    .always(function(){
-      $('.chat-form__send-button').removeAttr("disabled");
+  $(document).on('turbolinks:load', function() { 
+    $('.chat-form').on('submit', function(e){
+      e.preventDefault();
+      var formData = new FormData(this);
+      var url = $(this).attr('action');
+      $.ajax({
+        url: url,
+        type: "POST",
+        data: formData,
+        dataType: 'json',
+        processData: false,
+        contentType: false,
+      })
+      .done(function(data){
+        var html = buildHTML(data);
+        $('.chat-space').append(html);
+        $('.chat-form__input').val('');
+        $('.chat-form__image-input').val('');
+        $('.chat-space').animate({scrollTop: $('.chat-space')[0].scrollHeight});
+        return false
+      })
+      .fail(function(){
+        alert('メッセージを入力してください');
+      })
+      .always(function(){
+        $('.chat-form__send-button').removeAttr("disabled");
+      });
     });
   });
 });
