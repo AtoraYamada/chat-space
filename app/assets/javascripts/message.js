@@ -53,8 +53,7 @@ $(function(){
       .done(function(data){
         var html = buildHTML(data);
         $('.chat-space').append(html);
-        $('.chat-form__input').val('');
-        $('.chat-form__image-input').val('');
+        $('.chat-form')[0].reset();
         $('.chat-space').animate({scrollTop: $('.chat-space')[0].scrollHeight});
         return false
       })
