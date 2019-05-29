@@ -23,7 +23,6 @@ $(function() {
   }
   $("#user-search-field").on("keyup", function() {
     var input = $(this).val();
-    console.log(input)
     serach_result.empty();
     if (input.length !== 0){
       $.ajax({
@@ -33,7 +32,6 @@ $(function() {
         dataType: 'json'
       })
       .done(function(users) {
-        console.log(users)
         serach_result.empty();
         if (users.length !== 0) {
           users.forEach(function(user){
