@@ -7,10 +7,10 @@ $(function() {
                 </div>`
   serach_result.append(html);
   }
-  function appendUserToGroup(user){
-    var html = `<div class='chat-group-user clearfix js-chat-member' id='chat-group-user-${user.id}'>
-                  <input name='group[user_ids][]' type='hidden' value='${user.id}>
-                  <p class='chat-group-user__name'>${user.name}</p>
+  function appendUserToGroup(id, name){
+    var html = `<div class='chat-group-user clearfix js-chat-member' id='chat-group-user-${id}'>
+                  <input name='group[user_ids][]' type='hidden' value='${id}>
+                  <p class='chat-group-user__name'>${name}
                   <div class='user-search-remove chat-group-user__btn chat-group-user__btn--remove js-remove-btn'>削除</div>
                 </div>`
   $('#chat-group-users').append(html);
@@ -50,6 +50,12 @@ $(function() {
     }
   });
   $('#user-search-result').on('click', '.user-search-add', function(){
+    $(this).parent().remove();
+    var user_id = $(this).attr('data-user-id');
+    var user_name = $(this).attr('data-user-name');
+    appendUserToGroup(user_id, user_name);
+  });
+  $('#chat-group-users').on('click', '.user-search-remove', function(){
     $(this).parent().remove();
   });
 });
