@@ -7,10 +7,10 @@ $(function() {
                 </div>`
   serach_result.append(html);
   }
-  function appendUserToGroup(id, name){
-    var html = `<div class='chat-group-user clearfix js-chat-member' id='chat-group-user-${id}'>
-                  <input name='group[user_ids][]' type='hidden' value='${id}>
-                  <p class='chat-group-user__name'>${name}
+  function appendUserToGroup(user_id, user_name){
+    var html = `<div class='chat-group-user clearfix js-chat-member' id='chat-group-user-${user_id}'>
+                  <input name='group[user_ids][]' type='hidden' value='${user_id}>
+                  <p class='chat-group-user__name'>${user_name}
                   <div class='user-search-remove chat-group-user__btn chat-group-user__btn--remove js-remove-btn'>削除</div>
                 </div>`
   $('#chat-group-users').append(html);
