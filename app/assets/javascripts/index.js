@@ -24,7 +24,7 @@ $(function() {
   $(document).on('turbolinks:load', function() {
     $("#user-search-field").on("keyup", function() {
       var input = $(this).val();
-      var user_ids = $('.chat-group-user').find('input').map(function(){
+      var added_user_ids = $('.chat-group-user').find('input').map(function(){
         return $(this).attr('value');
       });
       serach_result.empty();
@@ -37,21 +37,18 @@ $(function() {
         })
         .done(function(users) {
           serach_result.empty();
-          if (users.length !== 0) {
-            console.log(users)
-            console.log(user_ids)
-            console.log(user_ids.length)
+          var searched_user_ids = users.map(function(user){
+            return user.id;
+          })
+          if (users.length !== 0 && searched_user_ids.toString() !== added_user_ids.get().toString()) {
             users.forEach(function(user){
-              console.log(user_ids.get())
-              console.log(`${user.id}`)
-              console.log(user_ids.get().indexOf(`${user.id}`))
-              if (user_ids.get().indexOf(`${user.id}`) == -1){
+              if (added_user_ids.get().indexOf(`${user.id}`) == -1){
               appendUserToResult(user);
               }
             });
           }
           else {
-            appendErrMsgToHTML("一致するユーザーが見つかりません");
+            appendErrMsgToHTML('一致するユーザーが見つかりません');
           }
         })
         .fail(function() {
@@ -60,12 +57,10 @@ $(function() {
       }
     });
     $('#user-search-result').on('click', '.user-search-add', function(){
-      var user_id = $(this).attr('data-user-id');
-      var user_name = $(this).attr('data-user-name');
+      var wanna_add_user_id = $(this).attr('data-user-id');
+      var wanna_add_user_name = $(this).attr('data-user-name');
       $(this).parent().remove();
-      console.log(user_id)
-      console.log(user_name)
-      appendUserToGroup(user_id, user_name);
+      appendUserToGroup(wanna_add_user_id, wanna_add_user_name);
     });
     $('#chat-group-users').on('click', '.user-search-remove', function(){
       $(this).parent().remove();
