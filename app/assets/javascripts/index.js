@@ -24,7 +24,7 @@ $(function() {
   $(document).on('turbolinks:load', function() {
     $("#user-search-field").on("keyup", function() {
       var input = $(this).val();
-      var user_names = $('.chat-group-user').find('input').map(function(){
+      var user_ids = $('.chat-group-user').find('input').map(function(){
         return $(this).attr('value');
       });
       serach_result.empty();
@@ -39,10 +39,15 @@ $(function() {
           serach_result.empty();
           if (users.length !== 0) {
             console.log(users)
-            console.log(user_names)
-            console.log(user_names.length)
+            console.log(user_ids)
+            console.log(user_ids.length)
             users.forEach(function(user){
+              console.log(user_ids.get())
+              console.log(`${user.id}`)
+              console.log(user_ids.get().indexOf(`${user.id}`))
+              if (user_ids.get().indexOf(`${user.id}`) == -1){
               appendUserToResult(user);
+              }
             });
           }
           else {
