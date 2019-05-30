@@ -62,8 +62,8 @@ $(function() {
       }
     });
     $('#user-search-result').on('click', '.user-search-add', function(){
-      var wanna_add_user_id = $(this).attr('data-user-id');
-      var wanna_add_user_name = $(this).attr('data-user-name');
+      var wanna_add_user_id = $(this).data('user-id');
+      var wanna_add_user_name = $(this).data('user-name');
       $(this).parent().remove();
       appendUserToGroup(wanna_add_user_id, wanna_add_user_name);
     });
