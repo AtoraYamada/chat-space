@@ -21,39 +21,47 @@ $(function() {
               </div>`
   serach_result.append(html);
   }
-  $("#user-search-field").on("keyup", function() {
-    var input = $(this).val();
-    serach_result.empty();
-    if (input.length !== 0){
-      $.ajax({
-        type: 'GET',
-        url: '/users',
-        data: { keyword: input },
-        dataType: 'json'
-      })
-      .done(function(users) {
-        serach_result.empty();
-        if (users.length !== 0) {
-          users.forEach(function(user){
-            appendUserToResult(user);
-          });
-        }
-        else {
-          appendErrMsgToHTML("一致するユーザーが見つかりません");
-        }
-      })
-      .fail(function() {
-        alert('ユーザー検索に失敗しました');
-      })
-    }
-  });
-  $('#user-search-result').on('click', '.user-search-add', function(){
-    $(this).parent().remove();
-    var user_id = $(this).attr('data-user-id');
-    var user_name = $(this).attr('data-user-name');
-    appendUserToGroup(user_id, user_name);
-  });
-  $('#chat-group-users').on('click', '.user-search-remove', function(){
-    $(this).parent().remove();
+  $(document).on('turbolinks:load', function() {
+    $("#user-search-field").on("keyup", function() {
+      var input = $(this).val();
+      var user_names = $('.chat-group-user').find('input').map(function(){
+        return $(this).attr('value');
+      });
+      serach_result.empty();
+      if (input.length !== 0){
+        $.ajax({
+          type: 'GET',
+          url: '/users',
+          data: { keyword: input },
+          dataType: 'json'
+        })
+        .done(function(users) {
+          serach_result.empty();
+          if (users.length !== 0) {
+            console.log(users)
+            console.log(user_names)
+            console.log(user_names.length)
+            users.forEach(function(user){
+              appendUserToResult(user);
+            });
+          }
+          else {
+            appendErrMsgToHTML("一致するユーザーが見つかりません");
+          }
+        })
+        .fail(function() {
+          alert('ユーザー検索に失敗しました');
+        })
+      }
+    });
+    $('#user-search-result').on('click', '.user-search-add', function(){
+      $(this).parent().remove();
+      var user_id = $(this).attr('data-user-id');
+      var user_name = $(this).attr('data-user-name');
+      appendUserToGroup(user_id, user_name);
+    });
+    $('#chat-group-users').on('click', '.user-search-remove', function(){
+      $(this).parent().remove();
+    });
   });
 });
