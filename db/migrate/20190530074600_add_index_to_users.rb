@@ -1,5 +1,11 @@
 class AddIndexToUsers < ActiveRecord::Migration[5.0]
-  def change
-    add_index :users, :name, :unique => true
-  end
+
+    def up
+      change_column :users, :name, :string, null: false, index: true, unique: true
+    end
+  
+    def down
+      change_column :users, :name, :string, null: false, index: true
+    end
+
 end
