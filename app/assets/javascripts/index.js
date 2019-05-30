@@ -12,13 +12,13 @@ $(function() {
                   <input name='group[user_ids][]' type='hidden' value='${user_id}'>
                   <p class='chat-group-user__name'>${user_name}
                   <div class='user-search-remove chat-group-user__btn chat-group-user__btn--remove js-remove-btn'>削除</div>
-                </div>`
+                </div>`;
   $('#chat-group-users').append(html);
   }
   function appendErrMsgToHTML(msg) {
   var html = `<div class="chat-group-user clearfix">
                 <p class="chat-group-user__name">${msg}</p>
-              </div>`
+              </div>`;
   serach_result.append(html);
   }
   $(document).on('turbolinks:load', function() {
@@ -39,7 +39,7 @@ $(function() {
           serach_result.empty();
           var searched_user_ids = users.map(function(user){
             return user.id;
-          })
+          });
           if (users.length !== 0 && searched_user_ids.toString() !== added_user_ids.get().toString()) {
             users.forEach(function(user){
               if (added_user_ids.get().indexOf(`${user.id}`) == -1){
@@ -53,7 +53,7 @@ $(function() {
         })
         .fail(function() {
           alert('ユーザー検索に失敗しました');
-        })
+        });
       }
     });
     $('#user-search-result').on('click', '.user-search-add', function(){
