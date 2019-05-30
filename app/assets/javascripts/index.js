@@ -40,7 +40,12 @@ $(function() {
           var searched_user_ids = users.map(function(user){
             return user.id;
           });
-          if (users.length !== 0 && searched_user_ids.toString() !== added_user_ids.get().toString()) {
+          var added_user_ids_num = added_user_ids.get().map(Number)
+          function compareFunc(a, b) {
+            return a - b;
+          }
+          added_user_ids_num.sort(compareFunc);
+          if (users.length !== 0 && searched_user_ids.toString() !== added_user_ids_num.toString()) {
             users.forEach(function(user){
               if (added_user_ids.get().indexOf(`${user.id}`) == -1){
               appendUserToResult(user);
