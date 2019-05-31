@@ -17,9 +17,8 @@ $(function(){
                   ${messagePicture}
                   </div>
                   </div>`;
-                  
-                  return html;
-                }
+  return html;
+  }
   var reloadMessages = function() {
     var last_message_id = $('.chat-space__message:last').data('message-id');
     var current_group_id = $('.chat-top-group').data('group-id');
