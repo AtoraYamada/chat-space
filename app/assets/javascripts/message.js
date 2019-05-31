@@ -31,7 +31,6 @@ $(function(){
     })
     .done(function(messages) {
       if (messages.length!=0){
-        console.log('success');
         var insertHTML = '';
         messages.forEach(function(message){
           insertHTML += buildHTML(message);
@@ -41,8 +40,10 @@ $(function(){
       }
     })
     .fail(function() {
-      console.log('error');
-      alert('自動更新に失敗しました')
+      alert('自動更新に失敗しました');
+    })
+    .always(function(){
+      $('.chat-form__send-button').removeAttr("disabled");
     });
   };
   $(document).on('turbolinks:load', function() { 
