@@ -1,7 +1,7 @@
 $(function(){
   function buildHTML(message){
   var messagePicture= message.picture.url ? `<img src='${message.picture.url}' class='image_tag'>` : '';
-  var html = `<div class="chat-space__message">
+  var html = `<div class="chat-space__message" data-message-id="${message.id}">
                 <div class="chat-space__message__upper">
                   <div class="chat-space__message__upper--user">
                     ${message.user_name}
