@@ -14,7 +14,7 @@ $(function(){
                   <div class="chat-space__message__lower--text">
                     ${message.body}
                   </div>
-                    ${messagePicture}
+                  ${messagePicture}
                 </div>
               </div>`;
   return html;
