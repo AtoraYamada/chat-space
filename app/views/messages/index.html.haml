@@ -1,7 +1,7 @@
 = render 'shared/side-bar'
 .main-chat
   .chat-top
-    .chat-top-group
+    .chat-top-group{ data: { group: { id: "#{@group.id}"}}}
       = @group.name
       %ul.chat-top-group__members
         Member :
