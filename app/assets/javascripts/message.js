@@ -9,18 +9,19 @@ $(function(){
                   <div class="chat-space__message__upper--time">
                     ${message.created_at}
                   </div>
-                </div>
-                <div class="chat-space__message__lower">
+                  </div>
+                  <div class="chat-space__message__lower">
                   <div class="chat-space__message__lower--text">
-                    ${message.body}
+                  ${message.body}
                   </div>
                   ${messagePicture}
-                </div>
-              </div>`;
-  
-  return html;
-  }
+                  </div>
+                  </div>`;
+                  
+                  return html;
+                }
   var reloadMessages = function() {
+    console.log(location.href)
     var last_message_id = $('.chat-space__message:last').data('message-id');
     var current_group_id = $('.chat-top-group').data('group-id');
     $.ajax({
@@ -70,8 +71,6 @@ $(function(){
         $('.chat-form__send-button').removeAttr("disabled");
       });
     });
-  });
-  $(document).on('turbolinks:load', function() { 
     if(location.href.match(/\/groups\/\d+\/messages/)){
       setInterval(reloadMessages, 5000);
     }
