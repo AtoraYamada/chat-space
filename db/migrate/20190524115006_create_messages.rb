@@ -1,5 +1,5 @@
 class CreateMessages < ActiveRecord::Migration[5.0]
-  def change
+  def up
     create_table :messages do |t|
       t.text :body
       t.string :image
@@ -7,5 +7,8 @@ class CreateMessages < ActiveRecord::Migration[5.0]
       t.references :group, foreign_key: true
       t.timestamps
     end
+  end
+
+  def down
   end
 end
