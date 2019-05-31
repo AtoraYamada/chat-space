@@ -20,6 +20,24 @@ $(function(){
   
   return html;
   }
+  var reloadMessages = function() {
+    last_message_id = $('.chat-space__message:last').data('message-id')
+    $.ajax({
+      //ルーティングで設定した通りのURLを指定
+      url: ※※※,
+      //ルーティングで設定した通りhttpメソッドをgetに指定
+      type: 'get',
+      dataType: 'json',
+      //dataオプションでリクエストに値を含める
+      data: {id: last_message_id}
+    })
+    .done(function(messages) {
+      console.log('success');
+    })
+    .fail(function() {
+      console.log('error');
+    });
+  };
   $(document).on('turbolinks:load', function() { 
     $('.chat-form').on('submit', function(e){
       e.preventDefault();
