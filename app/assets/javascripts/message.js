@@ -37,6 +37,7 @@ $(function(){
         insertHTML += buildHTML(message)
       })
       $('.chat-space').append(insertHTML);
+      $('.chat-space').animate({scrollTop: $('.chat-space')[0].scrollHeight});
     })
     .fail(function() {
       console.log('error');
