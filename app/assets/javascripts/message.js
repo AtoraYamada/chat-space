@@ -21,7 +21,6 @@ $(function(){
                   return html;
                 }
   var reloadMessages = function() {
-    console.log(location.href)
     var last_message_id = $('.chat-space__message:last').data('message-id');
     var current_group_id = $('.chat-top-group').data('group-id');
     $.ajax({
@@ -31,14 +30,15 @@ $(function(){
       data: {id: last_message_id, group_id: current_group_id}
     })
     .done(function(messages) {
-      console.log('success');
-      var insertHTML = '';
-      console.log(messages);
-      messages.forEach(function(message){
-        insertHTML += buildHTML(message);
-      });
-      $('.chat-space').append(insertHTML);
-      $('.chat-space').animate({scrollTop: $('.chat-space')[0].scrollHeight});
+      if (messages.length!=0){
+        console.log('success');
+        var insertHTML = '';
+        messages.forEach(function(message){
+          insertHTML += buildHTML(message);
+        });
+        $('.chat-space').append(insertHTML);
+        $('.chat-space').animate({scrollTop: $('.chat-space')[0].scrollHeight});
+      }
     })
     .fail(function() {
       console.log('error');
