@@ -31,6 +31,11 @@ $(function(){
     })
     .done(function(messages) {
       console.log('success');
+      var insertHTML = '';
+      messages.forEach(function(message){
+        insertHTML += buildHTML(message)
+      })
+      $('.chat-space').append(insertHTML);
     })
     .fail(function() {
       console.log('error');
