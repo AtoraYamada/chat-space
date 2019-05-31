@@ -21,21 +21,21 @@ $(function(){
   return html;
   }
   var reloadMessages = function() {
-    var last_message_id = $('.chat-space__message:last').data('message-id')
-    var current_group_id = $('.chat-top-group').data('group-id')
+    var last_message_id = $('.chat-space__message:last').data('message-id');
+    var current_group_id = $('.chat-top-group').data('group-id');
     $.ajax({
       url: `/groups/${current_group_id}/api/messages`,
       type: 'get',
       dataType: 'json',
-      data: {id: last_message_id}
+      data: {id: last_message_id, group_id: current_group_id}
     })
     .done(function(messages) {
       console.log('success');
       var insertHTML = '';
-      console.log(messages)
+      console.log(messages);
       messages.forEach(function(message){
-        insertHTML += buildHTML(message)
-      })
+        insertHTML += buildHTML(message);
+      });
       $('.chat-space').append(insertHTML);
       $('.chat-space').animate({scrollTop: $('.chat-space')[0].scrollHeight});
     })
@@ -61,7 +61,7 @@ $(function(){
         $('.chat-space').append(html);
         $('.chat-form')[0].reset();
         $('.chat-space').animate({scrollTop: $('.chat-space')[0].scrollHeight});
-        return false
+        return false;
       })
       .fail(function(){
         alert('メッセージを入力してください');
@@ -71,5 +71,9 @@ $(function(){
       });
     });
   });
-  setInterval(reloadMessages, 5000);
+  $(document).on('turbolinks:load', function() { 
+    if(location.href.match(/\/groups\/\d+\/messages/)){
+      setInterval(reloadMessages, 5000);
+    }
+  });
 });
