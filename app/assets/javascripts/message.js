@@ -9,14 +9,14 @@ $(function(){
                   <div class="chat-space__message__upper--time">
                     ${message.created_at}
                   </div>
-                  </div>
-                  <div class="chat-space__message__lower">
+                </div>
+                <div class="chat-space__message__lower">
                   <div class="chat-space__message__lower--text">
-                  ${message.body}
+                    ${message.body}
                   </div>
-                  ${messagePicture}
-                  </div>
-                  </div>`;
+                    ${messagePicture}
+                </div>
+              </div>`;
   return html;
   }
   var reloadMessages = function() {
