@@ -21,14 +21,12 @@ $(function(){
   return html;
   }
   var reloadMessages = function() {
-    last_message_id = $('.chat-space__message:last').data('message-id')
+    var last_message_id = $('.chat-space__message:last').data('message-id')
+    var current_group_id = $('.chat-top-group').data('group-id')
     $.ajax({
-      //ルーティングで設定した通りのURLを指定
-      url: ※※※,
-      //ルーティングで設定した通りhttpメソッドをgetに指定
+      url: `group/${current_group_id}/api/messages`,
       type: 'get',
       dataType: 'json',
-      //dataオプションでリクエストに値を含める
       data: {id: last_message_id}
     })
     .done(function(messages) {
