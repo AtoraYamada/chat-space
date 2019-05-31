@@ -24,7 +24,7 @@ $(function(){
     var last_message_id = $('.chat-space__message:last').data('message-id')
     var current_group_id = $('.chat-top-group').data('group-id')
     $.ajax({
-      url: `group/${current_group_id}/api/messages`,
+      url: `/groups/${current_group_id}/api/messages`,
       type: 'get',
       dataType: 'json',
       data: {id: last_message_id}
@@ -32,6 +32,7 @@ $(function(){
     .done(function(messages) {
       console.log('success');
       var insertHTML = '';
+      console.log(messages)
       messages.forEach(function(message){
         insertHTML += buildHTML(message)
       })
@@ -69,4 +70,5 @@ $(function(){
       });
     });
   });
+  setInterval(reloadMessages, 5000);
 });
