@@ -21,54 +21,52 @@ $(function() {
               </div>`;
   serach_result.append(html);
   }
-  $(document).on('turbolinks:load', function() {
-    $("#user-search-field").on("keyup", function() {
-      var input = $(this).val();
-      var added_user_ids = $('.chat-group-user').find('input').map(function(){
-        return $(this).attr('value');
-      });
-      serach_result.empty();
-      if (input.length !== 0){
-        $.ajax({
-          type: 'GET',
-          url: '/users',
-          data: { keyword: input },
-          dataType: 'json'
-        })
-        .done(function(users) {
-          serach_result.empty();
-          var searched_user_ids = users.map(function(user){
-            return user.id;
-          });
-          var added_user_ids_num = added_user_ids.get().map(Number)
-          function compareFunc(a, b) {
-            return a - b;
-          }
-          added_user_ids_num.sort(compareFunc);
-          if (users.length !== 0 && searched_user_ids.toString() !== added_user_ids_num.toString()) {
-            users.forEach(function(user){
-              if (added_user_ids.get().indexOf(`${user.id}`) == -1){
-              appendUserToResult(user);
-              }
-            });
-          }
-          else {
-            appendErrMsgToHTML('一致するユーザーが見つかりません');
-          }
-        })
-        .fail(function() {
-          alert('ユーザー検索に失敗しました');
+  $("#user-search-field").on("keyup", function() {
+    var input = $(this).val();
+    var added_user_ids = $('.chat-group-user').find('input').map(function(){
+      return $(this).attr('value');
+    });
+    serach_result.empty();
+    if (input.length !== 0){
+      $.ajax({
+        type: 'GET',
+        url: '/users',
+        data: { keyword: input },
+        dataType: 'json'
+      })
+      .done(function(users) {
+        serach_result.empty();
+        var searched_user_ids = users.map(function(user){
+          return user.id;
         });
-      }
-    });
-    $('#user-search-result').on('click', '.user-search-add', function(){
-      var wanna_add_user_id = $(this).data('user-id');
-      var wanna_add_user_name = $(this).data('user-name');
-      $(this).parent().remove();
-      appendUserToGroup(wanna_add_user_id, wanna_add_user_name);
-    });
-    $('#chat-group-users').on('click', '.user-search-remove', function(){
-      $(this).parent().remove();
-    });
+        var added_user_ids_num = added_user_ids.get().map(Number)
+        function compareFunc(a, b) {
+          return a - b;
+        }
+        added_user_ids_num.sort(compareFunc);
+        if (users.length !== 0 && searched_user_ids.toString() !== added_user_ids_num.toString()) {
+          users.forEach(function(user){
+            if (added_user_ids.get().indexOf(`${user.id}`) == -1){
+            appendUserToResult(user);
+            }
+          });
+        }
+        else {
+          appendErrMsgToHTML('一致するユーザーが見つかりません');
+        }
+      })
+      .fail(function() {
+        alert('ユーザー検索に失敗しました');
+      });
+    }
+  });
+  $('#user-search-result').on('click', '.user-search-add', function(){
+    var wanna_add_user_id = $(this).data('user-id');
+    var wanna_add_user_name = $(this).data('user-name');
+    $(this).parent().remove();
+    appendUserToGroup(wanna_add_user_id, wanna_add_user_name);
+  });
+  $('#chat-group-users').on('click', '.user-search-remove', function(){
+    $(this).parent().remove();
   });
 });
