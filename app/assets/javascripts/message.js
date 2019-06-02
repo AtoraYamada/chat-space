@@ -54,6 +54,9 @@ $(function(){
       e.preventDefault();
       var formData = new FormData(this);
       var url = $(this).attr('action');
+      if (jqxhr){
+        return;
+      }
       jqxhr=$.ajax({
         url: url,
         type: "POST",
@@ -74,8 +77,8 @@ $(function(){
       })
       .always(function(){
         $('.chat-form__send-button').removeAttr("disabled");
+        jqxhr=null;
       });
-      jqxhr=null;
     });
     if(location.href.match(/\/groups\/\d+\/messages/)){
       setInterval(reloadMessages, 5000);
