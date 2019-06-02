@@ -1,4 +1,5 @@
 $(function(){
+  var jqxhr;
   function buildHTML(message){
   var messagePicture= message.picture.url ? `<img src='${message.picture.url}' class='image_tag'>` : '';
   var html = `<div class="chat-space__message" data-message-id="${message.id}">
@@ -22,6 +23,9 @@ $(function(){
   var reloadMessages = function() {
     var last_message_id = $('.chat-space__message:last').data('message-id');
     var current_group_id = $('.chat-top-group').data('group-id');
+    if (jqxhr){
+      return;
+    }
     $.ajax({
       url: `/groups/${current_group_id}/api/messages`,
       type: 'get',
@@ -50,7 +54,7 @@ $(function(){
       e.preventDefault();
       var formData = new FormData(this);
       var url = $(this).attr('action');
-      $.ajax({
+      jqxhr=$.ajax({
         url: url,
         type: "POST",
         data: formData,
@@ -71,6 +75,7 @@ $(function(){
       .always(function(){
         $('.chat-form__send-button').removeAttr("disabled");
       });
+      jqxhr=null;
     });
     if(location.href.match(/\/groups\/\d+\/messages/)){
       setInterval(reloadMessages, 5000);
