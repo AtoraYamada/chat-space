@@ -45,14 +45,17 @@ $(function(){
     .fail(function() {
       alert('自動更新に失敗しました');
     })
-    .always(function(){
-      $('.chat-form__send-button').removeAttr("disabled");
-    });
+    // .always(function(){
+    //   $('.chat-form__send-button').removeAttr("disabled");
+    // });
   };
   $('.chat-form').on('submit', function(e){
     e.preventDefault();
     var formData = new FormData(this);
     var url = $(this).attr('action');
+    if (jqxhr){
+      return;
+    }
     jqxhr=$.ajax({
       url: url,
       type: "POST",
@@ -71,7 +74,7 @@ $(function(){
     .fail(function(){
       alert('メッセージを入力してください');
     })
-    .always(function(){
+    .complete(function(){
       $('.chat-form__send-button').removeAttr("disabled");
     });
     jqxhr=null;
