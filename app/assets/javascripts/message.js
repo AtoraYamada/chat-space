@@ -68,7 +68,7 @@ $(function(){
     .fail(function(){
       alert('メッセージを入力してください');
     })
-    .complete(function(){
+    .always(function(){
       $('.chat-form')[0].reset();
       $('.chat-form__send-button').removeAttr("disabled");
       jqxhr=null;
