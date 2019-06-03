@@ -32,8 +32,8 @@ $(function(){
     .done(function(messages) {
       if (messages.length!=0){
         var insertHTML = '';
-        var last_message_id = $('.chat-space__message:last').data('message-id');
         messages.forEach(function(message){
+          var last_message_id = $('.chat-space__message:last').data('message-id');
           if (message.id != last_message_id){
             insertHTML += buildHTML(message);
           }
