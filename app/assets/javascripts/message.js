@@ -45,9 +45,6 @@ $(function(){
     .fail(function() {
       alert('自動更新に失敗しました');
     })
-    // .always(function(){
-    //   $('.chat-form__send-button').removeAttr("disabled");
-    // });
   };
   $('.chat-form').on('submit', function(e){
     e.preventDefault();
@@ -67,7 +64,6 @@ $(function(){
     .done(function(data){
       var html = buildHTML(data);
       $('.chat-space').append(html);
-      $('.chat-form')[0].reset();
       $('.chat-space').animate({scrollTop: $('.chat-space')[0].scrollHeight});
       return false;
     })
@@ -75,6 +71,7 @@ $(function(){
       alert('メッセージを入力してください');
     })
     .complete(function(){
+      $('.chat-form')[0].reset();
       $('.chat-form__send-button').removeAttr("disabled");
     });
     jqxhr=null;
