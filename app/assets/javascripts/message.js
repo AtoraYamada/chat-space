@@ -42,8 +42,10 @@ $(function(){
       alert('自動更新に失敗しました');
     })
   };
+  var stopper=false;
   $('.chat-form').on('submit', function(e){
     e.preventDefault();
+    stopper=true;
     var formData = new FormData(this);
     var url = $(this).attr('action');
     $('.chat-form')[0].reset();
@@ -66,9 +68,15 @@ $(function(){
     })
     .always(function(){
       $('.chat-form__send-button').removeAttr("disabled");
+      stopper=false;
     });
   });
-  if(location.href.match(/\/groups\/\d+\/messages/)){
-    setInterval(reloadMessages, 5000);
+  if (stopper==true){
+    return;
+  }
+  else{
+    if(location.href.match(/\/groups\/\d+\/messages/)){
+      setInterval(reloadMessages, 5000);
+    }
   }
 });
