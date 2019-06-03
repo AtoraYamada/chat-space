@@ -58,6 +58,9 @@ $(function(){
       dataType: 'json',
       processData: false,
       contentType: false,
+      beforeSend : function( xhr ){
+        xhr.setRequestHeader("If-Modified-Since", "Thu, 01 Jun 1970 00:00:00 GMT");
+      }
     })
     .done(function(data){
       var html = buildHTML(data);
