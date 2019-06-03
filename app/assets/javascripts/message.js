@@ -20,6 +20,9 @@ $(function(){
   return html;
   }
   var reloadMessages = function() {
+    if (stopper==true){
+      return;
+    }
     var last_message_id = $('.chat-space__message:last').data('message-id');
     var current_group_id = $('.chat-top-group').data('group-id');
     $.ajax({
@@ -71,12 +74,7 @@ $(function(){
       stopper=false;
     });
   });
-  if (stopper==true){
-    return;
-  }
-  else{
-    if(location.href.match(/\/groups\/\d+\/messages/)){
-      setInterval(reloadMessages, 5000);
-    }
+  if(location.href.match(/\/groups\/\d+\/messages/)){
+    setInterval(reloadMessages, 5000);
   }
 });
