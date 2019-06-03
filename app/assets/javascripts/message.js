@@ -46,6 +46,7 @@ $(function(){
     e.preventDefault();
     var formData = new FormData(this);
     var url = $(this).attr('action');
+    $('.chat-form')[0].reset();
     $.ajax({
       url: url,
       type: "POST",
@@ -57,7 +58,6 @@ $(function(){
     .done(function(data){
       var html = buildHTML(data);
       $('.chat-space').append(html);
-      $('.chat-form')[0].reset();
       $('.chat-space').animate({scrollTop: $('.chat-space')[0].scrollHeight});
       return false;
     })
