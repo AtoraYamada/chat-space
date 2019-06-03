@@ -66,10 +66,13 @@ $(function(){
       }
     })
     .done(function(data){
-      var html = buildHTML(data);
-      $('.chat-space').append(html);
-      $('.chat-space').animate({scrollTop: $('.chat-space')[0].scrollHeight});
-      return false;
+      var last_message_id = $('.chat-space__message:last').data('message-id');
+      if (data.id != last_message_id){
+        var html = buildHTML(data);
+        $('.chat-space').append(html);
+        $('.chat-space').animate({scrollTop: $('.chat-space')[0].scrollHeight});
+        return false;
+      }
     })
     .fail(function(){
       alert('メッセージを入力してください');
