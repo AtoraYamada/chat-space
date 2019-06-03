@@ -25,6 +25,7 @@ $(function(){
     $.ajax({
       url: `/groups/${current_group_id}/api/messages`,
       type: 'get',
+      cache: false,
       dataType: 'json',
       data: {id: last_message_id, group_id: current_group_id}
     })
