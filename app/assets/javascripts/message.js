@@ -73,8 +73,8 @@ $(function(){
     .complete(function(){
       $('.chat-form')[0].reset();
       $('.chat-form__send-button').removeAttr("disabled");
+      jqxhr=null;
     });
-    jqxhr=null;
   });
   if(location.href.match(/\/groups\/\d+\/messages/)){
     setInterval(reloadMessages, 5000);
