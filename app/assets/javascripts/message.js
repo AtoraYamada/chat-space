@@ -70,11 +70,17 @@ $(function(){
     })
     .fail(function(){
       alert('メッセージを入力してください');
-    })
-    .always(function(){
-      $('.chat-form')[0].reset();
       $('.chat-form__send-button').removeAttr("disabled");
-      jqxhr=null;
+    })
+    .always(function(data){
+      console.log(data.id)
+      var last_message_id = $('.chat-space__message:last').data('message-id');
+      console.log(last_message_id)
+      if (data.id == last_message_id){
+        $('.chat-form')[0].reset();
+        $('.chat-form__send-button').removeAttr("disabled");
+        jqxhr=null;
+      }
     });
   });
   if(location.href.match(/\/groups\/\d+\/messages/)){
