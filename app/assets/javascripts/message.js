@@ -25,7 +25,6 @@ $(function(){
     $.ajax({
       url: `/groups/${current_group_id}/api/messages`,
       type: 'get',
-      cache: false,
       dataType: 'json',
       data: {id: last_message_id, group_id: current_group_id}
     })
@@ -33,10 +32,7 @@ $(function(){
       if (messages.length!=0){
         var insertHTML = '';
         messages.forEach(function(message){
-          var last_message_id = $('.chat-space__message:last').data('message-id');
-          if (message.id != last_message_id){
-            insertHTML += buildHTML(message);
-          }
+          insertHTML += buildHTML(message);
         });
         $('.chat-space').append(insertHTML);
         $('.chat-space').animate({scrollTop: $('.chat-space')[0].scrollHeight});
@@ -50,37 +46,26 @@ $(function(){
     e.preventDefault();
     var formData = new FormData(this);
     var url = $(this).attr('action');
-    var jqxhr;
-    if (jqxhr){
-      return;
-    }
-    jqxhr=$.ajax({
+    $.ajax({
       url: url,
       type: "POST",
       data: formData,
       dataType: 'json',
       processData: false,
       contentType: false,
-      beforeSend : function( xhr ){
-        xhr.setRequestHeader("If-Modified-Since", "Thu, 01 Jun 1970 00:00:00 GMT");
-      }
     })
     .done(function(data){
-      var last_message_id = $('.chat-space__message:last').data('message-id');
-      if (data.id != last_message_id){
-        var html = buildHTML(data);
-        $('.chat-space').append(html);
-        $('.chat-space').animate({scrollTop: $('.chat-space')[0].scrollHeight});
-        return false;
-      }
+      var html = buildHTML(data);
+      $('.chat-space').append(html);
+      $('.chat-form')[0].reset();
+      $('.chat-space').animate({scrollTop: $('.chat-space')[0].scrollHeight});
+      return false;
     })
     .fail(function(){
       alert('メッセージを入力してください');
     })
     .always(function(){
-      $('.chat-form')[0].reset();
       $('.chat-form__send-button').removeAttr("disabled");
-      jqxhr=null;
     });
   });
   if(location.href.match(/\/groups\/\d+\/messages/)){
