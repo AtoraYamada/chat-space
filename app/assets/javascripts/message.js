@@ -32,8 +32,11 @@ $(function(){
     .done(function(messages) {
       if (messages.length!=0){
         var insertHTML = '';
+        var last_message_id = $('.chat-space__message:last').data('message-id');
         messages.forEach(function(message){
-          insertHTML += buildHTML(message);
+          if (message.id != last_message_id){
+            insertHTML += buildHTML(message);
+          }
         });
         $('.chat-space').append(insertHTML);
         $('.chat-space').animate({scrollTop: $('.chat-space')[0].scrollHeight});
@@ -70,17 +73,11 @@ $(function(){
     })
     .fail(function(){
       alert('メッセージを入力してください');
-      $('.chat-form__send-button').removeAttr("disabled");
     })
-    .always(function(data){
-      console.log(data.id)
-      var last_message_id = $('.chat-space__message:last').data('message-id');
-      console.log(last_message_id)
-      if (data.id == last_message_id){
-        $('.chat-form')[0].reset();
-        $('.chat-form__send-button').removeAttr("disabled");
-        jqxhr=null;
-      }
+    .always(function(){
+      $('.chat-form')[0].reset();
+      $('.chat-form__send-button').removeAttr("disabled");
+      jqxhr=null;
     });
   });
   if(location.href.match(/\/groups\/\d+\/messages/)){
