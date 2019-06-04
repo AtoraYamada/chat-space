@@ -20,9 +20,6 @@ $(function(){
   return html;
   }
   var reloadMessages = function() {
-    if (stopper==true){
-      return;
-    }
     var last_message_id = $('.chat-space__message:last').data('message-id');
     var current_group_id = $('.chat-top-group').data('group-id');
     $.ajax({
@@ -45,10 +42,9 @@ $(function(){
       alert('自動更新に失敗しました');
     })
   };
-  var stopper=false;
+  $('.chat-form').off('submit');
   $('.chat-form').on('submit', function(e){
     e.preventDefault();
-    stopper=true;
     var formData = new FormData(this);
     var url = $(this).attr('action');
     $('.chat-form')[0].reset();
@@ -71,7 +67,6 @@ $(function(){
     })
     .always(function(){
       $('.chat-form__send-button').removeAttr("disabled");
-      stopper=false;
     });
   });
   if(location.href.match(/\/groups\/\d+\/messages/)){
