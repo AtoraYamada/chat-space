@@ -42,7 +42,6 @@ $(function(){
       alert('自動更新に失敗しました');
     })
   };
-  $('.chat-form').off('submit');
   $('.chat-form').on('submit', function(e){
     e.preventDefault();
     var formData = new FormData(this);
