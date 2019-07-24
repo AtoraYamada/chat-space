@@ -74,7 +74,7 @@ gem 'font-awesome-rails'
 gem 'devise'
 gem 'rails-i18n'
 gem 'carrierwave'
-gem 'mini_magick'
+gem 'mini_magick', ">= 4.9.4"
 gem 'pry-rails'
 gem 'sassc'
 gem 'fog-aws'
