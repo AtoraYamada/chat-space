@@ -13,6 +13,7 @@ class UsersController < ApplicationController
   def update
     user = User.find(params[:id])
     if current_user.update(user_params)
+      UserMailer.send_mail(user).deliver_now
       redirect_to root_path
     else
       render :edit
