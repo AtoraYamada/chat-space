@@ -16,5 +16,7 @@ module ChatSpace
       config.i18n.default_locale = :ja
       config.time_zone = 'Tokyo'
     end
+
+    config.action_mailer.preview_path = "#{Rails.root}/test/mailers/previews"
   end
 end
